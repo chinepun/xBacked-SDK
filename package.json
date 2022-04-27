@@ -1,0 +1,15 @@
+{
+  "name": "algo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "liquidatevault.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@xbacked-dao/xbacked-sdk": "^0.0.30"
+  },
+  "type": "module"
+}
