@@ -7,6 +7,7 @@ const account = new Account({network: "TestNet", mnemonic: process.env.SEED_PHRA
 const algoToxUSDVault = new Vault({id: VAULT_IDS.TestNet.algo});
 
 
+// get all Vaults in the network
 const availableVaults = await getOpenVaults({account: account,vault: algoToxUSDVault})
 
 const vaultState = await account.getVaultState({vault: algoToxUSDVault})
@@ -18,7 +19,7 @@ console.log("CollateralPrice = ", vaultState.collateralPrice);
 
     if (currentVault.collateralRatio < vaultState.liquidationCollateralRatio && currentVault.liquidating ){
 
-        await account.liquidateVault({address: availableVaultsi, debtAmount: 2 , vault: algoToxUSDVault})
+        await account.liquidateVault({address: availableVaults[i], debtAmount: 2 , vault: algoToxUSDVault})
         
         console.log("New Collateral Ratio = ", calcCollateralRatio(vaultInfo.collateral, vaultState.collateralPrice, vaultInfo.vaultDebt))
 
